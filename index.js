@@ -7,10 +7,10 @@ client.once("ready", () => {
 });
 
 client.on("message", (message) => {
-  console.log("content: ", message);
+  console.log("content: ", message.content);
 
   if (message.content.startsWith(`${prefix}kick`)) {
-    message.channel.send('You said "kicked"');
+    message.channel.send(`You said "kicked"`);
   }
 });
 client.login(token);
