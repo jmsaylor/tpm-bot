@@ -7,10 +7,12 @@ client.once("ready", () => {
 });
 
 client.on("message", (message) => {
-  console.log("content: ", message.content);
+  console.log(`${message.author.username} : ${message.content}`);
 
   if (message.content.startsWith(`${prefix}kick`)) {
-    message.channel.send(`You said "kicked"`);
+    message.channel.send(
+      `You said "kicked" + ${message.mentions.members.first()}`
+    );
   }
 });
 client.login(token);
