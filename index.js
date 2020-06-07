@@ -13,20 +13,18 @@ client.on("message", async (message) => {
 
   if (message.content.startsWith(`${prefix}colors`)) {
     // message.channel.send(`You said: ${message}`);
-
+    console.log(message.content);
     const userInput = message.content.split(" ").splice(1);
     const hexColor = userInput[0];
     console.log(`Hex: ${hexColor}`);
 
     try {
-      const response = await colorInfoLink(hexColor);
-      const body = response;
-      console.log("body ", body);
+      console.log(hexColor.length);
+      message.reply(await colorInfoLink(hexColor));
     } catch (e) {
       console.log("Error: ", e);
     }
   }
-  console.log(colorInfoLink);
 });
 
 client.login(token);
